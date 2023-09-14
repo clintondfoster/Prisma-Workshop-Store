@@ -13,7 +13,14 @@ app.use("/", express.static(path.join(__dirname, "public")));
 
 app.use(express.json())
 
-app.use('/api', require('./api'));
+// app.use('/api', require('./api'));
+
+//test
+app.get("/", (req, res)=> {
+    res.json({
+        id: 1,
+    })
+})
 
 app.get("*/", (_req, res) => {
     res.sendFile(path.join(__dirname, "../public", "index.html"));
@@ -22,3 +29,4 @@ app.get("*/", (_req, res) => {
 app.listen(PORT, ()=>{
     console.log('On port'+PORT)
 })
+
