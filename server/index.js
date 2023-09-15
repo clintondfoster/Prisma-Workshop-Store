@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require("path");
-const PORT = 5174
+const PORT = 5174;
 
 const {PrismaClient} = require("@prisma/client");
 const prisma = new PrismaClient();
@@ -13,7 +13,8 @@ app.use("/", express.static(path.join(__dirname, "public")));
 
 app.use(express.json())
 
-// app.use('/api', require('./api'));
+app.use('/api', require('./api'));
+app.use("/auth", require("./auth"));
 
 //test
 app.get("/", (req, res)=> {
